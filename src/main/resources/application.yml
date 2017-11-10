@@ -15,6 +15,7 @@ logging:
     org.springframework: INFO
     org.patchca: DEBUG
     org.apache: WARN
-
-
-  
+    
+    
+memcached: 
+  servers: 130.252.100.20:11211

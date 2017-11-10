@@ -1,0 +1,2 @@
+memcached: 
+  servers: 172.27.232.78:11211
