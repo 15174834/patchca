@@ -28,6 +28,11 @@ public class AdaptiveRandomWordFactory extends RandomWordFactory {
 		this.wideCharacters = wideCharacters;
 	}
 
+	public AdaptiveRandomWordFactory(String characters, String wideCharacters) {
+		super(characters);
+		this.wideCharacters = wideCharacters;
+	}
+
 	public AdaptiveRandomWordFactory() {
 		characters = "absdegkmnopwx23456789";
 		wideCharacters = "mw";

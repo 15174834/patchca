@@ -26,6 +26,11 @@ public class RandomWordFactory implements WordFactory {
 	protected int minLength;
 	protected int maxLength;
 	
+	public RandomWordFactory(String characters) {
+		super();
+		this.characters = characters;
+	}
+
 	public void setCharacters(String characters) {
 		this.characters = characters;
 	}
@@ -35,6 +40,13 @@ public class RandomWordFactory implements WordFactory {
 	}
 
 	public void setMaxLength(int maxLength) {
+		this.maxLength = maxLength;
+	}
+
+	public RandomWordFactory(String characters, int minLength, int maxLength) {
+		super();
+		this.characters = characters;
+		this.minLength = minLength;
 		this.maxLength = maxLength;
 	}
 

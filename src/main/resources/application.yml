@@ -1,0 +1,20 @@
+server: 
+  port: 9528
+  
+spring:
+  application: 
+    name: patchca-service
+    
+logging: 
+  file: "./logs/${spring.application.name}.log"
+  pattern:
+    file: '%date{dd HH:mm:ss.SSS} [%thread] %-5level %logger{16}:%line - %msg%n'
+    console: ${logging.pattern.file}
+  level: 
+    root: INFO
+    org.springframework: INFO
+    org.patchca: DEBUG
+    org.apache: WARN
+
+
+  
