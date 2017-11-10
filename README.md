@@ -25,13 +25,20 @@ java -jar patchca.jar
 
 if run on linux the captcha image is not loaded
 command on server
-###Ubuntu/Debian:
+
+### Ubuntu/Debian:
+
+```java
 Install the JDK Fonts package on top of the Oracle JDK by running:
 sudo apt-get install fonts-dejavu-core
+```
 Restart Server.
 
-###CentOS:
+### CentOS:
+
 Install the JDK Fonts package on top of the Oracle JDK by running:
+
+```java
 sudo yum install \
 dejavu-lgc-sans-fonts \
 dejavu-lgc-sans-mono-fonts \
@@ -39,4 +46,5 @@ dejavu-lgc-serif-fonts \
 dejavu-sans-fonts \
 dejavu-sans-mono-fonts \
 dejavu-serif-fonts
+```
 Restart Server.
