@@ -69,7 +69,7 @@ public class Application {
 
 			cs.setHeight(60);
 			cs.setWidth(120);
-			cs.setWordFactory(new RandomWordFactory("2345678abcdegikpsvxyz", 5, 6));
+			cs.setWordFactory(new RandomWordFactory("2345678abcdegikpsvxyz", 4, 5));
 			Captcha captcha = cs.getCaptcha();
 			boolean write = ImageIO.write(captcha.getImage(), "PNG", response.getOutputStream());
 			if (write) {
