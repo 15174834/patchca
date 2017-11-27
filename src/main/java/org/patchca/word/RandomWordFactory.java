@@ -25,7 +25,7 @@ public class RandomWordFactory implements WordFactory {
 	protected String characters;
 	protected int minLength;
 	protected int maxLength;
-	
+
 	public RandomWordFactory(String characters) {
 		super();
 		this.characters = characters;
@@ -55,12 +55,12 @@ public class RandomWordFactory implements WordFactory {
 		minLength = 6;
 		maxLength = 6;
 	}
-	
+
 	@Override
 	public String getNextWord() {
 		Random rnd = new Random();
 		StringBuffer sb = new StringBuffer();
-		int l = minLength + (maxLength > minLength ? rnd.nextInt(maxLength - minLength) : 0);
+		int l = minLength + (maxLength > minLength ? rnd.nextInt(maxLength - minLength + 1) : 0);
 		for (int i = 0; i < l; i++) {
 			int j = rnd.nextInt(characters.length());
 			sb.append(characters.charAt(j));
@@ -68,5 +68,4 @@ public class RandomWordFactory implements WordFactory {
 		return sb.toString();
 	}
 
-	
 }
