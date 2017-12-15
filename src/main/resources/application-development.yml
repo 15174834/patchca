@@ -1,2 +1,2 @@
 memcached: 
-  servers: 130.252.100.20:11211
+  servers: 127.0.0.1:11211
