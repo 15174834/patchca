@@ -39,7 +39,7 @@ Restart Server.
 Install the JDK Fonts package on top of the Oracle JDK by running:
 
 ```java
-sudo yum install \
+sudo yum install -y \
 dejavu-lgc-sans-fonts \
 dejavu-lgc-sans-mono-fonts \
 dejavu-lgc-serif-fonts \
