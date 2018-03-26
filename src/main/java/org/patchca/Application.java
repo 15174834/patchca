@@ -25,12 +25,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import me.douboo.springboot.memcached.EnableMemcached;
 import net.spy.memcached.MemcachedClient;
 
 @Controller
 @SpringBootApplication
-@EnableMemcached
 public class Application {
 	private final static Logger logger = LoggerFactory.getLogger(Application.class);
 
