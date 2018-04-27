@@ -1,2 +1,2 @@
 memcached: 
-  servers: icoinbay-mem.aer3hr.cfg.apse1.cache.amazonaws.com:11211
+  servers: localhost:11211
