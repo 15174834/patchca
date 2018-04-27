@@ -1,2 +1,2 @@
 memcached: 
-  servers: localhost:11211
+  servers: 127.0.0.1:11211
