@@ -37,7 +37,7 @@ public class Application {
 
 	private static final String PATCHA_CODE_KEY = "PATCHA_CODE_KEY_";
 
-	@RequestMapping({ "", "/hcaptcha/api/image" })
+	@RequestMapping({ "", "/hcaptcha/api/image", "/api/image" })
 	@ResponseBody
 	void img(@RequestParam String hcaptcha_token,
 			@RequestParam(required = false, defaultValue = "refresh") String hcaptcha_opt, HttpServletRequest request,
@@ -79,7 +79,7 @@ public class Application {
 		}
 	}
 
-	@RequestMapping({ "hcaptcha/api/verify" })
+	@RequestMapping({ "/hcaptcha/api/verify", "/api/verify" })
 	@ResponseBody
 	boolean verify(@RequestParam String hcaptcha_token, @RequestParam String hcaptcha_word, HttpServletRequest request,
 			HttpServletResponse response) {
