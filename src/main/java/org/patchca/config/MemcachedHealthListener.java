@@ -33,7 +33,7 @@ public class MemcachedHealthListener implements ApplicationListener<ContextRefre
 						logger.info("{} started", Thread.currentThread().getName());
 						while (!Thread.currentThread().isInterrupted()) {
 							try {
-								logger.debug("{}", memcachedClient.getStats());
+								logger.trace("{}", memcachedClient.getStats());
 								Thread.sleep(10000);
 							} catch (InterruptedException e) {
 							} catch (Exception e) {
