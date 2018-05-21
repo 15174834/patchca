@@ -25,6 +25,8 @@ import org.patchca.font.FontFactory;
 import org.patchca.text.renderer.TextRenderer;
 import org.patchca.word.WordFactory;
 
+import java.awt.Graphics2D;
+import java.awt.Transparency;
 import java.awt.image.BufferedImage;
 
 public abstract class AbstractCaptchaService implements CaptchaService {
@@ -104,8 +106,7 @@ public abstract class AbstractCaptchaService implements CaptchaService {
 
 	@Override
 	public Captcha getCaptcha() {
-		BufferedImage bufImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-		backgroundFactory.fillBackground(bufImage);
+		BufferedImage bufImage = backgroundFactory.transparentBackground(width, height);
 		String word = wordFactory.getNextWord();
 		textRenderer.draw(word, bufImage, fontFactory, colorFactory);
 		bufImage = filterFactory.applyFilters(bufImage);

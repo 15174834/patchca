@@ -23,5 +23,7 @@ import java.awt.image.BufferedImage;
 
 public interface BackgroundFactory {
 
-	void fillBackground(BufferedImage dest);
+	BufferedImage fillBackground(int width, int height);
+
+	BufferedImage transparentBackground(int width, int height);
 }

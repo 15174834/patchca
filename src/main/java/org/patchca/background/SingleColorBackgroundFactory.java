@@ -18,17 +18,19 @@
  */
 package org.patchca.background;
 
-import org.patchca.color.ColorFactory;
-import org.patchca.color.SingleColorFactory;
-
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Transparency;
 import java.awt.image.BufferedImage;
 
+import org.patchca.color.ColorFactory;
+import org.patchca.color.SingleColorFactory;
 
 public class SingleColorBackgroundFactory implements BackgroundFactory {
 
 	private ColorFactory colorFactory;
-	
+
 	public SingleColorBackgroundFactory() {
 		colorFactory = new SingleColorFactory(Color.WHITE);
 	}
@@ -36,16 +38,28 @@ public class SingleColorBackgroundFactory implements BackgroundFactory {
 	public SingleColorBackgroundFactory(Color color) {
 		colorFactory = new SingleColorFactory(color);
 	}
-	
+
 	public void setColorFactory(ColorFactory colorFactory) {
 		this.colorFactory = colorFactory;
 	}
 
 	@Override
-	public void fillBackground(BufferedImage dest) {
-		Graphics g = dest.getGraphics();
+	public BufferedImage fillBackground(int width, int height) {
+		BufferedImage bufImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+		Graphics g = bufImage.getGraphics();
 		g.setColor(colorFactory.getColor(0));
-		g.fillRect(0, 0, dest.getWidth(), dest.getHeight());
+		g.fillRect(0, 0, bufImage.getWidth(), bufImage.getHeight());
+		g.dispose();
+		return bufImage;
+
+	}
+
+	@Override
+	public BufferedImage transparentBackground(int width, int height) {
+		BufferedImage bufImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+		Graphics2D g2d = bufImage.createGraphics();
+		bufImage = g2d.getDeviceConfiguration().createCompatibleImage(bufImage.getWidth(), bufImage.getHeight(), Transparency.TRANSLUCENT);
+		return bufImage;
 	}
 
 }

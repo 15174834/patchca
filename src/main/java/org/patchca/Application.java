@@ -39,8 +39,7 @@ public class Application {
 
 	@RequestMapping({ "", "/hcaptcha/api/image", "/api/image" })
 	@ResponseBody
-	void img(@RequestParam String hcaptcha_token,
-			@RequestParam(required = false, defaultValue = "refresh") String hcaptcha_opt, HttpServletRequest request,
+	void img(@RequestParam String hcaptcha_token, @RequestParam(required = false, defaultValue = "refresh") String hcaptcha_opt, HttpServletRequest request,
 			HttpServletResponse response) {
 		try {
 
@@ -69,7 +68,7 @@ public class Application {
 			cs.setWidth(120);
 			cs.setWordFactory(new RandomWordFactory("2345678abcdegikpsvxyz", 4, 5));
 			Captcha captcha = cs.getCaptcha();
-			boolean write = ImageIO.write(captcha.getImage(), "PNG", response.getOutputStream());
+			boolean write = ImageIO.write(captcha.getImage(), "png", response.getOutputStream());
 			if (write) {
 				this.memcachedClient.set(PATCHA_CODE_KEY + hcaptcha_token, 300, captcha.getChallenge());
 			}
@@ -81,8 +80,7 @@ public class Application {
 
 	@RequestMapping({ "/hcaptcha/api/verify", "/api/verify" })
 	@ResponseBody
-	boolean verify(@RequestParam String hcaptcha_token, @RequestParam String hcaptcha_word, HttpServletRequest request,
-			HttpServletResponse response) {
+	boolean verify(@RequestParam String hcaptcha_token, @RequestParam String hcaptcha_word, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			Object object = this.memcachedClient.get(PATCHA_CODE_KEY + hcaptcha_token);
 			if (null != object && object.equals(hcaptcha_word)) {
