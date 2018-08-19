@@ -20,6 +20,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,7 +38,7 @@ public class Application {
 
 	private static final String PATCHA_CODE_KEY = "PATCHA_CODE_KEY_";
 
-	@RequestMapping({ "", "/hcaptcha/api/image", "/api/image" })
+	@RequestMapping(value = { "", "/hcaptcha/api/image", "/api/image" }, consumes = MediaType.IMAGE_PNG_VALUE)
 	@ResponseBody
 	void img(@RequestParam String hcaptcha_token, @RequestParam(required = false, defaultValue = "refresh") String hcaptcha_opt, HttpServletRequest request,
 			HttpServletResponse response) {
