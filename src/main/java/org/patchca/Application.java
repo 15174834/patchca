@@ -69,6 +69,7 @@ public class Application {
 			cs.setWidth(120);
 			cs.setWordFactory(new RandomWordFactory("2345678abcdegikpsvxyz", 4, 5));
 			Captcha captcha = cs.getCaptcha();
+			response.setContentType(MediaType.IMAGE_PNG_VALUE);
 			boolean write = ImageIO.write(captcha.getImage(), "png", response.getOutputStream());
 			if (write) {
 				this.memcachedClient.set(PATCHA_CODE_KEY + hcaptcha_token, 300, captcha.getChallenge());
