@@ -38,7 +38,7 @@ public class Application {
 
 	private static final String PATCHA_CODE_KEY = "PATCHA_CODE_KEY_";
 
-	@RequestMapping(value = { "", "/hcaptcha/api/image", "/api/image" }, consumes = MediaType.IMAGE_PNG_VALUE)
+	@RequestMapping(value = { "", "/hcaptcha/api/image", "/api/image" }, produces = MediaType.IMAGE_PNG_VALUE)
 	@ResponseBody
 	void img(@RequestParam String hcaptcha_token, @RequestParam(required = false, defaultValue = "refresh") String hcaptcha_opt, HttpServletRequest request,
 			HttpServletResponse response) {
