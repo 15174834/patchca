@@ -89,7 +89,7 @@ public class Application {
 				return true;
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error(e.getMessage(), e);
 		} finally {
 			this.memcachedClient.delete(PATCHA_CODE_KEY + hcaptcha_token);
 		}
